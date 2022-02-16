@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="safari"></div>
+    <div class="not-supported"></div>
     <div class="keys">
       <div data-key="65" class="key">
         <kbd>A</kbd>
@@ -60,10 +60,6 @@
       var isMobile = /iPhone|iPad|iPod|Android...etc/i.test(
         navigator.userAgent
       );
-      if (isMobile) {
-        window.alert("Mobile Phone");
-      }
-
       var isSafari =
         /constructor/i.test(window.HTMLElement) ||
         (function (p) {
@@ -73,15 +69,13 @@
             (typeof safari !== "undefined" && window["safari"].pushNotification)
         );
 
-      if (isSafari) {
-        console.log("Safari is not a supported browser.");
+      if (isSafari || isMobile) {
         window.alert(
-          "Due to browser limitations, Safari is not supported at this time."
+          "Due to browser limitations, Safari and mobile browsers are not supported at this time."
         );
       } else {
-        const safari = document.querySelector(".safari");
-        safari.remove();
-        //safari.classList.remove("safari");
+        const notSupported = document.querySelector(".not-supported");
+        notSupported.remove();
 
         function playSound(e) {
           const audio = document.querySelector(
