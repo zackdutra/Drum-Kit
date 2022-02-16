@@ -9,7 +9,13 @@ body,html {
   padding: 0;
   font-family: sans-serif;
 }
-
+.safari{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
 .keys {
   display: flex;
   flex: 1;
